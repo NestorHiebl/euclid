@@ -32,7 +32,7 @@ or
 
 ### Requirements
 
- - ´gcc´
- - ´ghc´
- - ´make´
+ - `gcc`
+ - `ghc`
+ - `make`
 
