@@ -1,20 +1,20 @@
-import System.Environment
-import Prelude hiding (gcd)
-import Numeric.Natural
+import System.Environment (getArgs)
+import Numeric.Natural (Natural)
 
-gcd :: Natural -> Natural -> Natural
-gcd 0 0 = 0
-gcd a 0 = a
-gcd a b =  gcd b' (a' `mod` b')
+gcd_simple :: Natural -> Natural -> Natural
+gcd_simple 0 0 = 0
+gcd_simple a 0 = a
+gcd_simple a b =  gcd_simple b' (a' `mod` b')
     where
         -- Ignore argument order
         a' = max a b
         b' = min a b
 
-gcdFold = foldr (gcd) 0
+gcdFold :: [Natural] -> Natural
+gcdFold = foldr (gcd_simple) 0
 
 coprimes :: Natural -> Natural -> Bool
-coprimes a b = (gcd a b) == 1
+coprimes a b = (gcd_simple a b) == 1
 
 -- Cardinality of {0 < i < n | gcd(i,n) == 0}
 numCoprimesOfBase :: Natural -> Natural
@@ -25,9 +25,10 @@ numCoprimesOfBase n = foldr (inc) 0 [1..n]
 handleArgs :: [String] -> String
 handleArgs args = case length args of 
     0 -> "Usage: Provide arbitrary natural numbers to find GCD of"
-    n -> show $ gcdFold $ map (stringToNat) args
+    _ -> show $ gcdFold $ map (stringToNat) args
     where
         stringToNat s = (read s) :: Natural
 
+main :: IO ()
 main = getArgs >>= putStrLn . handleArgs
 
