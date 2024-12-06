@@ -6,7 +6,17 @@
 
 void print_usage(void)
 {
-    printf("Usage placeholder\n");
+    printf(
+        "USAGE\n"
+        "  euclid [flags] <command> <arguments>\n\n"
+        "COMMANDS\n"
+        "  gcd:     Compute GCD of a list of numbers\n"
+        "  phi:     Compute Euler phi function of a single number\n"
+        "\n"
+        "FLAGS\n"
+        "  None\n"
+        "\n"
+    );
 }
 
 /**
