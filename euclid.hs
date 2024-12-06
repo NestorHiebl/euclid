@@ -16,9 +16,9 @@ gcdFold = foldr (gcd_simple) 0
 coprimes :: Natural -> Natural -> Bool
 coprimes a b = (gcd_simple a b) == 1
 
--- Cardinality of {0 < i < n | gcd(i,n) == 0}
-numCoprimesOfBase :: Natural -> Natural
-numCoprimesOfBase n = foldr (inc) 0 [1..n]
+-- Euler phi function - naive, innefficient implementation
+eulerPhi :: Natural -> Natural
+eulerPhi n = foldr (inc) 0 [1..n]
     where
         inc m acc = if coprimes n m then acc + 1 else acc
 
