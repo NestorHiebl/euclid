@@ -7,9 +7,10 @@ A rudimentary number theory playground in C and Haskell.
 | ----------------------------- | ------------- | ------------- |
 | Standard Euclidean Algorithm  | ✅            | ✅            |
 | Extended Euclidean Algorithm  | ❌            | ❌            |
+| Abstract Euclidean Algorithm  | ❌            | ❌            |
 | Bezout Identity               | ❌            | ❌            |
-| Coprime test                  | ❌            | ✅ (No CLI)   |
-| Num. coprimes from 1 to n     | ❌            | ✅ (No CLI)   |
+| Coprime test                  | ✅            | ✅ (No CLI)   |
+| Euler phi function            | ✅            | ✅ (No CLI)   |
 
 Currently the only command line functionality is computing the GCD of an
 arbitrarily long list of numbers. All Haskell functionality marked with "No
